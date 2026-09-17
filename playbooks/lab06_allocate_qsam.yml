@@ -1,0 +1,24 @@
+---
+# Lab 6: Allocate a QSAM (physical sequential) data set.
+- name: Allocate a QSAM data set
+  hosts: mainframe
+  gather_facts: false
+  environment: "{{ environment_vars }}"
+
+  tasks:
+    - name: Allocate {{ hlq }}.TEST.QSAM
+      ibm.ibm_zos_core.zos_data_set:
+        name: "{{ hlq }}.TEST.QSAM"
+        type: seq
+        record_format: fb
+        record_length: 80
+        block_size: 32000
+        space_primary: 1
+        space_type: trk
+        state: present
+        replace: true
+      register: qsam
+
+    - name: Confirm
+      ansible.builtin.debug:
+        msg: "{{ hlq }}.TEST.QSAM allocated (changed={{ qsam.changed }})"

@@ -1,0 +1,34 @@
+---
+# Lab 10: Submit JCL that already lives in a PDSE on z/OS.
+- name: Submit JCL from a PDSE
+  hosts: mainframe
+  gather_facts: false
+  environment: "{{ environment_vars }}"
+
+  tasks:
+    - name: Submit {{ hlq }}.LAB.JCL(HELLO) and wait
+      ibm.ibm_zos_core.zos_job_submit:
+        src: "{{ hlq }}.LAB.JCL(HELLO)"
+        location: data_set
+        wait_time_s: 60
+        max_rc: 4
+        return_output: true
+      register: job
+
+    - name: Fail on anything worse than a warning
+      ansible.builtin.assert:
+        that:
+          - job.jobs[0].ret_code.code <= 4
+        fail_msg: >-
+          {{ job.jobs[0].job_name }} ended with RC
+          {{ job.jobs[0].ret_code.code }}
+
+    - name: Identify the job
+      ansible.builtin.debug:
+        msg: >-
+          {{ job.jobs[0].job_name }} ran as {{ job.jobs[0].job_id }}
+          and ended with RC {{ job.jobs[0].ret_code.code }}
+
+    - name: Show the SYSUT2 output
+      ansible.builtin.debug:
+        msg: "{{ (job.jobs[0].ddnames | selectattr('ddname', 'equalto', 'SYSUT2') | first).content | default('SYSUT2 not returned') }}"

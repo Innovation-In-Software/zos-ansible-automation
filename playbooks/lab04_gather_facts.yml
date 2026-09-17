@@ -1,0 +1,22 @@
+---
+# Lab 4: Gather information about z/OS from the command line.
+- name: Gather z/OS system information
+  hosts: mainframe
+  gather_facts: false
+  environment: "{{ environment_vars }}"
+
+  tasks:
+    - name: Query static system information
+      ibm.ibm_zos_core.zos_gather_facts:
+        gather_subset:
+          - ipl
+          - cpu
+          - sys
+      register: zos_facts
+
+    - name: Show what came back
+      ansible.builtin.debug:
+        msg:
+          - "Parmlib data set: {{ ansible_facts.parmlib_dsn | default('n/a') }}"
+          - "Master catalog:   {{ ansible_facts.master_catalog_dsn | default('n/a') }}"
+          - "TSO/E level:      {{ ansible_facts.tsoe_ver | default('?') }}.{{ ansible_facts.tsoe_rel | default('?') }}"

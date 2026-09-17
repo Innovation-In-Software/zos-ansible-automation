@@ -1,0 +1,68 @@
+---
+# Lab 11: Copy boilerplate JCL into the library, tailor it in place with
+# zos_replace, then submit it and report the result.
+- name: Tailor boilerplate JCL and submit it
+  hosts: mainframe
+  gather_facts: false
+  environment: "{{ environment_vars }}"
+
+  tasks:
+    # --- Step 1: copy the boilerplate in, without touching the rest of the PDSE
+    - name: Make sure the JCL library exists
+      ibm.ibm_zos_core.zos_data_set:
+        name: "{{ hlq }}.LAB.JCL"
+        type: library
+        record_format: fb
+        record_length: 80
+        block_size: 32000
+        space_primary: 1
+        space_secondary: 1
+        space_type: trk
+        state: present
+
+    - name: Copy the boilerplate into member TEXTOUT
+      ibm.ibm_zos_core.zos_copy:
+        src: jcl/TEXTOUT.jcl
+        dest: "{{ hlq }}.LAB.JCL(TEXTOUT)"
+        force: true
+        encoding:
+          from: ISO8859-1
+          to: IBM-1047
+
+    # --- Step 2: tailor it in place
+    # NOTE: labs.md calls for zos_replace here, but zos_replace in collection
+    # 1.15.0 is incompatible with the ZOAU 1.4.0.0 installed on this LPAR --
+    # it fails with "write() got an unexpected keyword argument 'force'".
+    # zos_lineinfile reaches the same result and is verified working here.
+    # Revert to zos_replace once ZOAU 1.3.4.x is available on the LPAR.
+    - name: Replace the placeholder userid with the student TSO id
+      ibm.ibm_zos_core.zos_lineinfile:
+        src: "{{ hlq }}.LAB.JCL(TEXTOUT)"
+        regexp: '^//             MSGLEVEL=\(1,1\),NOTIFY=PLACEHLD'
+        line: "//             MSGLEVEL=(1,1),NOTIFY={{ student_id }}"
+
+    - name: Replace the boilerplate text
+      ibm.ibm_zos_core.zos_lineinfile:
+        src: "{{ hlq }}.LAB.JCL(TEXTOUT)"
+        regexp: '^OLD TEXT$'
+        line: 'NEW AND IMPROVED TEXT'
+
+    # --- Step 3: submit and report
+    - name: Submit the tailored job
+      ibm.ibm_zos_core.zos_job_submit:
+        src: "{{ hlq }}.LAB.JCL(TEXTOUT)"
+        location: data_set
+        wait_time_s: 60
+        max_rc: 4
+        return_output: true
+      register: job
+
+    - name: Fail on anything worse than a warning
+      ansible.builtin.assert:
+        that:
+          - job.jobs[0].ret_code.code <= 4
+        fail_msg: "RC {{ job.jobs[0].ret_code.code }} from {{ job.jobs[0].job_name }}"
+
+    - name: Show the tailored output
+      ansible.builtin.debug:
+        msg: "{{ (job.jobs[0].ddnames | selectattr('ddname', 'equalto', 'SYSUT2') | first).content | default('SYSUT2 not returned') }}"

@@ -1,0 +1,26 @@
+---
+# Remove every data set this student created, so the labs can be run again
+# from a clean slate. Scoped to IBMUSER.<student_id>.* and nothing else.
+- name: Clean up one student's lab data sets
+  hosts: mainframe
+  gather_facts: false
+  environment: "{{ environment_vars }}"
+
+  tasks:
+    - name: Find everything under {{ hlq }}
+      ibm.ibm_zos_core.zos_find:
+        patterns:
+          - "{{ hlq }}.**"
+      register: found
+
+    - name: List what will be deleted
+      ansible.builtin.debug:
+        msg: "{{ found.data_sets | map(attribute='name') | list | default([]) }}"
+
+    - name: Delete them
+      ibm.ibm_zos_core.zos_data_set:
+        name: "{{ item.name }}"
+        state: absent
+      loop: "{{ found.data_sets | default([]) }}"
+      loop_control:
+        label: "{{ item.name }}"

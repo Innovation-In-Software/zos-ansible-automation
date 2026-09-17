@@ -1,0 +1,28 @@
+---
+# Lab 9: Copy a local JCL file into the JCL library as member HELLO.
+- name: Copy a JCL member to the PDSE
+  hosts: mainframe
+  gather_facts: false
+  environment: "{{ environment_vars }}"
+
+  tasks:
+    - name: Make sure the JCL library exists
+      ibm.ibm_zos_core.zos_data_set:
+        name: "{{ hlq }}.LAB.JCL"
+        type: library
+        record_format: fb
+        record_length: 80
+        block_size: 32000
+        space_primary: 1
+        space_secondary: 1
+        space_type: trk
+        state: present
+
+    - name: Copy jcl/HELLO.jcl into member HELLO
+      ibm.ibm_zos_core.zos_copy:
+        src: jcl/HELLO.jcl
+        dest: "{{ hlq }}.LAB.JCL(HELLO)"
+        force: true
+        encoding:
+          from: ISO8859-1
+          to: IBM-1047

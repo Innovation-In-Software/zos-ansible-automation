@@ -1,0 +1,11 @@
+//TEXTOUT  JOB (ACCT),'TEXT OUT',CLASS=A,MSGCLASS=X,
+//             MSGLEVEL=(1,1),NOTIFY=PLACEHLD
+//*
+//* Lab 11: boilerplate. PLACEHLD and OLD TEXT are replaced in place.
+//*
+//STEP1    EXEC PGM=IEBGENER
+//SYSPRINT DD SYSOUT=*
+//SYSUT1   DD *
+OLD TEXT
+//SYSUT2   DD SYSOUT=*
+//SYSIN    DD DUMMY

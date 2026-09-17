@@ -1,0 +1,19 @@
+---
+# Lab 8: Allocate a PDSE to hold JCL.
+- name: Allocate a PDSE for JCL
+  hosts: mainframe
+  gather_facts: false
+  environment: "{{ environment_vars }}"
+
+  tasks:
+    - name: Allocate {{ hlq }}.LAB.JCL
+      ibm.ibm_zos_core.zos_data_set:
+        name: "{{ hlq }}.LAB.JCL"
+        type: library
+        record_format: fb
+        record_length: 80
+        block_size: 32000
+        space_primary: 1
+        space_secondary: 1
+        space_type: trk
+        state: present

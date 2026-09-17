@@ -1,0 +1,41 @@
+---
+# Lab 7: Conditionally allocate a QSAM data set and copy a local file into it.
+- name: Copy local data to a QSAM data set
+  hosts: mainframe
+  gather_facts: false
+  environment: "{{ environment_vars }}"
+
+  tasks:
+    - name: Make sure the data set exists
+      ibm.ibm_zos_core.zos_data_set:
+        name: "{{ hlq }}.TEST.QSAM"
+        type: seq
+        record_format: fb
+        record_length: 80
+        block_size: 32000
+        space_primary: 1
+        space_type: trk
+        state: present
+
+    - name: Copy the local file in
+      ibm.ibm_zos_core.zos_copy:
+        src: files/customers.txt
+        dest: "{{ hlq }}.TEST.QSAM"
+        force: true
+        encoding:
+          from: ISO8859-1
+          to: IBM-1047
+
+    - name: Read it back
+      ibm.ibm_zos_core.zos_fetch:
+        src: "{{ hlq }}.TEST.QSAM"
+        dest: /tmp/
+        flat: true
+        encoding:
+          from: IBM-1047
+          to: ISO8859-1
+      register: fetched
+
+    - name: Show where it landed
+      ansible.builtin.debug:
+        msg: "Fetched to {{ fetched.dest }}"
