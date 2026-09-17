@@ -31,7 +31,11 @@ After installation, the git client will be on the system path where VSCode can f
 Once you have a git client installed, there are four ways to clone the repository and work with it within VSCode. (You only need to use one of these four ways.)
 
 - Option 1: If you haven't added this repository to VSCode, open the Command Palette (ctrl+shift-P or cmd-shift-P), search for Git Clone, and paste in the repository URL.
-- Option 2: If VSCode already knows about this repository, click on the source control icon in the left sidebar of the VSCode window. Open the list of repositories, click on the "three dots" icon next to the course repository name, and choose "clone repository".
+- Option 2: If VSCode already knows about this repository, click on the source control icon in the left sidebar of the VSCode window. It looks like this:
+
+![vscode-source-control-icon.png](vscode-source-control-icon.png)
+
+Open the list of repositories, click on the "three dots" icon next to the course repository name, and choose "clone repository".
 - Option 3: Open the integrated terminal view in VSCode (ctrl+` or View -> Terminal on the main menu) and enter a git clone command in the Terminal panel.
 - Option 4: In any command window outside of VSCode, enter a git clone command. 
 
