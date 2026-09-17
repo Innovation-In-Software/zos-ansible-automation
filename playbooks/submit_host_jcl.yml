@@ -1,0 +1,24 @@
+---
+- name: Submit JCL on host 
+  hosts: zos
+  gather_facts: no 
+  collections:
+    - ibm.ibm_zos_core
+  environment: "{{ environment_vars }}"
+
+  tasks:
+    - name: Submit JCL from a PDS member 
+      zos_job_submit:
+        src: "IBMUSER.JCL(IN2OUT)"  
+        location: DATA_SET 
+        wait: true
+        wait_time_s: 60
+        return_output: true  
+      register: job_output 
+
+    - name: Display job results 
+      debug:
+        msg:
+          - "Job Name: {{ job_output.jobs[0].job_name }}"
+          - "Job ID: {{ job_output.jobs[0].job_id }}"
+          - "Return Code: {{ job.output.jobs[0].ret_code.msg }}"

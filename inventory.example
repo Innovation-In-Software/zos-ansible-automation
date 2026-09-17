@@ -1,0 +1,3 @@
+# Copy to `inventory` and fill in your host. The real inventory is NOT committed;
+# in AAP the equivalent lives in the "z/OS Mainframe" inventory object.
+mainframe ansible_host=<ZOS_HOST_IP> ansible_python_interpreter=/usr/lpp/IBM/cyp/v3r11/pyz/bin/python

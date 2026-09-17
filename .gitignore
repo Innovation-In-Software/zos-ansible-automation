@@ -1,0 +1,14 @@
+# Never commit credentials or the live inventory
+id_rsa
+id_rsa.pub
+*.pem
+*.key
+inventory
+
+# Collections installed at sync time
+collections/ansible_collections/
+
+# Junk
+.DS_Store
+*.tgz
+*.zip
