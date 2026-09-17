@@ -1,9 +1,32 @@
+---
+## group_vars/all.yml
+#
+# Toolchain locations on the LPAR. Verified 2026-09-17 against 173.45.66.189.
+#
+#   ibm.ibm_zos_core 1.15.0 requires ZOAU 1.3.4 or later. The default tree at
+#   /usr/lpp/IBM/zoautil is 1.2.5.4 and is too old -- with it, only zos_ping
+#   works and every data set module fails. ZOAU 1.4.0.0 is installed
+#   separately at /usr/lpp/IBM/zoau/v1r4 and ships wheels for cp312/cp313
+#   only, so Python must be 3.13 (v3r13), not the 3.11 tree.
+PYZ: "/usr/lpp/IBM/cyp/v3r13/pyz"
+ZOAU: "/usr/lpp/IBM/zoau/v1r4"
+
+# Per-student data set namespace.
+#
+#   Student TSO IDs (GAMA01, GAMA02, ...) have no OMVS segment and cannot be
+#   SSH/Ansible users, so every student connects as ibmuser. Isolation happens
+#   at the data set level instead: each student owns IBMUSER.<their TSO id>.*
+#   In AAP, student_id comes from the job template survey.
+hlq: "IBMUSER.{{ student_id | mandatory }}"
 
 environment_vars:
-  PYTHONSTDINENCODING: cp1047
-  _BPXK_AUTOCVT: ON
+  _BPXK_AUTOCVT: "ON"
+  ZOAU_HOME: "{{ ZOAU }}"
+  PYTHONPATH: "{{ ZOAU }}/lib/3.13"
+  LIBPATH: "{{ ZOAU }}/lib:{{ PYZ }}/lib:/lib:/usr/lib:."
+  PATH: "{{ ZOAU }}/bin:{{ PYZ }}/bin:/bin:/var/bin"
+  PYTHONSTDINENCODING: "cp1047"
   _CEE_RUNOPTS: "FILETAG(AUTOCVT,AUTOTAG) POSIX(ON)"
   _TAG_REDIR_IN: txt
   _TAG_REDIR_OUT: txt
   _TAG_REDIR_ERR: txt
-
