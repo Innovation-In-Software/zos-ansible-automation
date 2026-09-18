@@ -13,4 +13,14 @@ This is a group lab guided by the instructor. Python and ZOAU are mentioned in t
 
 Ansible works by establishing an ssh session, sending a script to the target system, executing the script remotely and collecting the results, and deleting the script on the target system. To reduce the mystery of all that, we can demonstrate a crude example of performing the same steps directly, without Ansible. 
 
-This lab reinforces information provided in the presentation rather than challenging you to complete a task. 
+This lab reinforces information provided in the presentation rather than challenging you to complete a task.
+
+Demo 1: 
+
+Shell script getinfo uses ssh to get the output from whoami and uname commands from USS on the z/OS host.
+
+Demo 2:
+
+Shell script runhello.sh or runhello2.sh uses ssh to submit a batch job and retrieve the contents of an output file from the job. 
+
+If ZOAU commands are installed on the target system, use runhello.sh. Otherwise, use runhello2.sh.
