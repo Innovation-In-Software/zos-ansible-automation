@@ -1,0 +1,59 @@
+---
+#------------------------------------------------------------ 
+# Demonstrates how to issue a TSO command through Ansible.
+# This example does a LISTUSER command to get the RACF
+# profile of a RACF user. Then it looks for specific values
+# in the returned data, demonstrating how to navigate a
+# JSON document that Ansible returns.
+#
+# -e "userid=USERID"
+#------------------------------------------------------------ 
+- name: Get RACF profile for a given userid
+  hosts: zoslab
+  gather_facts: false
+  collections:
+    - ibm.ibm_zos_core
+  environment: "{{ environment_vars }}"
+
+  tasks:
+    - ansible.builtin.assert:
+        that: userid is defined
+        fail_msg: 'The z/OS userid must be passed on command line: ansible-playbook blah -e "userid=value"'
+
+    - name: Get RACF profile info for userid "{{ userid }}"
+      zos_tso_command:
+        commands:
+          - "LISTUSER {{ userid }} TSO OMVS"
+      register: result
+
+# Uncomment to see what the result looks like
+#    - name: Inspect command content
+#      ansible.builtin.debug:
+#        msg: "{{ result.output[0].content | join('\n') }}"
+
+    - name: Extract selected LISTUSER values
+      ansible.builtin.set_fact:
+        user_attributes: >-
+          {{
+            user_attributes | default({}) |
+            combine({
+              item: (
+                result.output[0].content
+                | join('\n')
+                | regex_findall(item ~ '[ ]*=[ ]*([^ ]+)')
+                | first
+                | default('', true)
+              )
+            })
+          }}
+      loop:
+        - DEFAULT-GROUP
+        - LAST-ACCESS
+        - ACCTNUM
+        - HOME
+      loop_control:
+        label: "{{ item }}"
+
+    - name: Display extracted values
+      ansible.builtin.debug:
+        var: user_attributes
