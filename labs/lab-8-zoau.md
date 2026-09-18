@@ -1,6 +1,6 @@
 #### [Labs](labs.md) => _lab-8-zoau.md_
 
-# Lab 5: Explore Python and ZOAU components on USS
+# Lab 8: Explore Python and ZOAU components on USS
 
 Goals:
 

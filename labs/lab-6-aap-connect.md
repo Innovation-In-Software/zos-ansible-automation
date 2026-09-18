@@ -1,6 +1,6 @@
 #### [Labs](labs.md) => _lab-6-aap-connect.md_
 
-# Lab 5: Access the Automation Controller via command line 
+# Lab 6: Access the Automation Controller via command line 
 
 Goals:
 

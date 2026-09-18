@@ -1,6 +1,6 @@
 #### [Labs](labs.md) => _lab-10-ibm-zos-core.md_
 
-# Lab 5: Install or verify the ibm_zos_core collection
+# Lab 10: Install or verify the ibm_zos_core collection
 
 Goals:
 

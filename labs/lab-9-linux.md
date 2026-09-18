@@ -1,6 +1,6 @@
 #### [Labs](labs.md) => _lab-9-linux.md_
 
-# Lab 5: Quick and dirty intro to Linux
+# Lab 9: Quick and dirty intro to Linux
 
 Goals:
 

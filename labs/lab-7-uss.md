@@ -1,6 +1,6 @@
 #### [Labs](labs.md) => _lab-7-uss.md_
 
-# Lab 5: USS quick and dirty intro
+# Lab 7: USS quick and dirty intro
 
 Goals:
 
