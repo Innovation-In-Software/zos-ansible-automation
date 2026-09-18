@@ -15,7 +15,7 @@ ssh -i privatekeyfile userid@ipaddress
 
 ## Step 2: Use Ansible commands to display inventory values 
 
-Ansible inventory can be as simple as a single file, but in most environments there are numerous hosts of different kinds and various sets of environment variables. It often makes sense to organize this data in a consistent way rather than trying to maintain it all in a single file. 
+Ansible inventory can be as simple as a single file, but in most environments there are numerous hosts of different kinds and various sets of environment variables. It often makes sense to organize this data in a coherent way rather than trying to maintain it all in a single file. 
 
 The -i command-line option that points to the Ansible inventory can specify a single file or the name of a directory. Ansible pulls in all the files under that directory at runtime and puts it together into a single "blob." We don't have to try and maintain the information as a single "blob." We can organize subdirectories and files under the main inventory directory however we please. 
 
