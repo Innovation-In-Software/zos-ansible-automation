@@ -1,0 +1,44 @@
+# Writes the JCL inline, submits it, and prints the spool output.
+#
+# Ported from the upstream sample at
+# github.com/neopragma/ansible-zos-sample for ibm.ibm_zos_core 2.0.0.
+# Three API changes from the 1.9.0-era original:
+#   location: USS   -> remote_src: true   (location's choices are also now
+#                                          lowercase; remote_src is the
+#                                          current spelling)
+#   wait_time_s     -> wait_time
+#   jobs[0].ddnames -> jobs[0].dds
+- name: Hello World JCL job
+  hosts: zoslab
+  gather_facts: false
+  environment: "{{ environment_vars }}"
+
+  tasks:
+    - name: Write Hello World JCL to USS
+      ibm.ibm_zos_core.zos_copy:
+        content: |
+          //HELOWRLD JOB CLASS=A,MSGCLASS=X,MSGLEVEL=(1,1)
+          //STEP1    EXEC PGM=BPXBATCH
+          //STDOUT   DD SYSOUT=*
+          //STDERR   DD SYSOUT=*
+          //STDPARM  DD *
+          SH echo "Hello, World from z/OS!"
+          /*
+        dest: /u/ibmuser/hello_world.jcl
+        force: true
+
+    - name: Submit Hello World job
+      ibm.ibm_zos_core.zos_job_submit:
+        src: /u/ibmuser/hello_world.jcl
+        remote_src: true
+        wait_time: 60
+        return_output: true
+      register: job_output
+
+    - name: Show job ID and return code
+      ansible.builtin.debug:
+        msg: "Job {{ job_output.jobs[0].job_id }} completed RC={{ job_output.jobs[0].ret_code.msg }}"
+
+    - name: Show spool output
+      ansible.builtin.debug:
+        msg: "{{ job_output.jobs[0].dds | map(attribute='content') | list }}"
