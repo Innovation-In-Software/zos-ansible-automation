@@ -8,6 +8,7 @@
 #                                          current spelling)
 #   wait_time_s     -> wait_time
 #   jobs[0].ddnames -> jobs[0].dds
+#   zos_copy force:  -> replace:
 - name: Hello World JCL job
   hosts: zoslab
   gather_facts: false
@@ -25,7 +26,7 @@
           SH echo "Hello, World from z/OS!"
           /*
         dest: /u/ibmuser/hello_world.jcl
-        force: true
+        replace: true
 
     - name: Submit Hello World job
       ibm.ibm_zos_core.zos_job_submit:
