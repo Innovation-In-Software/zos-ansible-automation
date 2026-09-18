@@ -24,3 +24,5 @@ Demo 2:
 Shell script runhello.sh or runhello2.sh uses ssh to submit a batch job and retrieve the contents of an output file from the job. 
 
 If ZOAU commands are installed on the target system, use runhello.sh. Otherwise, use runhello2.sh.
+
+Demo 2 runs job IBMUSER.LAB.JCL(HELLOUSS) on the z/OS host.
