@@ -30,7 +30,7 @@ These labs assume
 
 ## Day 2
 
-### Lab Notes for Labs 14 - 21
+### Notes for Labs 14 - 21
 
 Ansible can perform most of the tasks that you might need to carry out to administer a z/OS system. With each new release, they are adding more functionality. By enabling you to submit TSO commands it provides a way to fill in any functional gaps in its modules, since you can basically do "anything" that way.
 
@@ -52,6 +52,12 @@ Use the Ansible documentation, examples in the class repository, and help from y
 ## Day 3
 
 ### Lab 22: [Configure inventory and playbooks on the Ansible Controller](lab-22-ansible-controller.md)
+
+
+### Notes for Labs 23 - xx
+
+This set of Labs involves setting up typical kinds of jobs on z/OS and then converting them into "native" Ansible solutions that do the same work. You will do this kind of thing on an ongoing basis as you gradually shift solutions from the z/OS platform to the Controller environment.
+
 ### Lab 23: [Run job to allocate a source library and copy members into it](lab-23-library-job.md)
 ### Lab 24: [Convert the job from Lab 24 into "native" Ansible](lab-24-jcl-to-playbook.md)
 ### Lab 25: [Run batch job to define and populate a KSDS and do a LISTCAT](lab-25-vsam-job.md)
