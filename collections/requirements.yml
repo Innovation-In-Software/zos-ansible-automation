@@ -4,4 +4,4 @@
 # not ship the IBM z/OS collections, so they are pulled in here.
 collections:
   - name: ibm.ibm_zos_core
-    version: "1.15.0"
+    version: "2.0.0"
