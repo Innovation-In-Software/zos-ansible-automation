@@ -12,3 +12,4 @@ collections/ansible_collections/
 .DS_Store
 *.tgz
 *.zip
+inventory_zoslab

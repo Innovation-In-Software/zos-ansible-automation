@@ -1,0 +1,43 @@
+# Execution environment pinned to:
+#   ansible        7.7.0
+#   ansible-core   2.14.18
+#   ibm_zos_core   1.9.0
+#
+# ansible-core 2.14 supports Python 3.9-3.11 on the control side, so the base
+# is UBI9 + Python 3.11. UBI9 pulls from registry.access.redhat.com without
+# credentials, unlike the ee-minimal images on registry.redhat.io.
+FROM registry.access.redhat.com/ubi9/python-311:latest
+
+USER 0
+
+# ansible-core pinned explicitly: ansible 7.7.0 declares ansible-core ~=2.14.7,
+# which would otherwise float within the 2.14 series.
+RUN pip3 install --no-cache-dir \
+        "ansible-core==2.14.18" \
+        "ansible==7.7.0" \
+        "ansible-runner" \
+        "receptorctl" \
+    && pip3 check || true
+
+# ibm_zos_core 1.9.0 declares requires_ansible '>=2.15.0', which contradicts
+# ansible-core 2.14.18. --force installs it anyway; this combination is
+# outside what IBM supports.
+RUN ansible-galaxy collection install --force \
+        ibm.ibm_zos_core:1.9.0 \
+        -p /usr/share/ansible/collections
+
+ENV ANSIBLE_COLLECTIONS_PATH=/usr/share/ansible/collections \
+    ANSIBLE_HOST_KEY_CHECKING=False \
+    HOME=/opt/app-root/src
+
+# AAP runs execution environments under an arbitrary UID in the root group, so
+# everything the run touches must be group-writable. The .ansible dir created
+# by the root-run pip/galaxy steps above is removed so it is recreated with
+# the right ownership at runtime.
+RUN rm -rf /opt/app-root/src/.ansible \
+ && mkdir -p /runner /opt/app-root/src \
+ && chgrp -R 0 /runner /opt/app-root/src /usr/share/ansible \
+ && chmod -R g=u /runner /opt/app-root/src /usr/share/ansible
+
+WORKDIR /runner
+USER 1001
