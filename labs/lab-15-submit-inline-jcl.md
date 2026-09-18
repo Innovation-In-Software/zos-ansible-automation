@@ -2,9 +2,11 @@
 
 # Lab 15: Submit inline JCL 
 
+There are three ways to submit a batch job with Ansible: code the JCL inline (this lab), keep the JCL on the control node, or keep the JCL on the z/OS host. 
+
 Goal:
 
-- Report general information about the z/OS host.
+- Submit JCL that is coded inline in the Ansible playbook.
 
 ## Step 1: ssh into your Ansible control node.
 
@@ -12,6 +14,6 @@ Goal:
 ssh -i privatekeyfile userid@ipaddress
 ``` 
 
-## Step 2: Write an Ansible playbook to gather facts about the z/OS host
+## Step 2: Write an Ansible playbook to submit inline JCL
 
-Write an Ansible playbook that uses the zos_gather_facts module in the ibm_zos_core collection to query the Lab z/OS system for basic system information.
+Write an Ansible playbook that uses the zos_copy and zos_job_submit modules in the ibm_zos_core collection to transfer JCL coded inline to the z/OS host and submit it.
