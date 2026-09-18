@@ -21,13 +21,12 @@ These labs assume
 ### Lab 5: [Access the Automation Controller from a Web browser](lab-5-access-aap.md)
 ### Lab 6: [Connect to the Automation Controller server to use the command line](lab-6-aap-connect.md)
 ### Lab 7: [USS quick and dirty](lab-7-uss.md)
-### Lab 8: [Explore Python and ZOAU components on z/OS](lab-8-zoau.md)
+### Lab 8: [Explore Python andZOAU components on z/OS](lab-8-zoau.md)
 ### Lab 9: [Linux quick and dirty](lab-9-linux.md)
 ### Lab 10: [Install or verify the ibm_zos_core collection](lab-10-ibm-zos-core.md)
 ### Lab 11: [Ping z/OS with Ansible](lab-11-ping.md)
-### Lab 12: [Explore the Ansible z/OS documentation](lab-12-documentation.md)
-### Lab 13: [Display Ansible variables and host values](lab-13-show-inventory.md)
-### Lab 14: [Gather information about the z/OS system](lab-14-gather-facts.md)
+### Lab 12: [Display Ansible variables and host values](lab-12-show-inventory.md)
+### Lab 13: [Gather information about the z/OS system](lab-13-gather-facts.md)
 
 ## Day 2
 
