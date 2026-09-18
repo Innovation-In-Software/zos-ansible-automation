@@ -1,19 +1,13 @@
-#### [Labs](labs.md) => _lab-14-list-started-tasks.md_
+#### [Labs](labs.md) => _lab-15-list-started-tasks.md_
 
-# Lab 14: Use Ansible to get a list of active started tasks on the z/OS host 
+# Lab 15: Use Ansible to get a list of active started tasks on the z/OS host 
 
 Goal:
 
 - List active started tasks.
 - Experience resolving issues related to version differences.
 
-## Step 1: ssh into your Ansible control node.
-
-```shell
-ssh -i privatekeyfile userid@ipaddress
-``` 
-
-## Step 2: Write an Ansible playbook to display a list of active started tasks.
+## Step 1: Write an Ansible playbook to display a list of active started tasks.
 
 Write an Ansible playbook that uses the zos_job_query module in the ibm_zos_core collection to query the Lab z/OS host for a list of the active started tasks on the system.
 

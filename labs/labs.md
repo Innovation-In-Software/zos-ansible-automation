@@ -30,7 +30,9 @@ These labs assume
 
 ## Day 2
 
-### Notes for Labs 14 - 21
+### Lab 14: [Configure inventory and playbooks on the Ansible Controller](lab-14-ansible-controller.md)
+
+### Notes for Labs 15 - 22
 
 Ansible can perform most of the tasks that you might need to carry out to administer a z/OS system. With each new release, they are adding more functionality. By enabling you to submit TSO commands it provides a way to fill in any functional gaps in its modules, since you can basically do "anything" that way.
 
@@ -40,19 +42,16 @@ In the meantime, it's useful to know how to use Ansible to invoke the solutions 
 
 Use the Ansible documentation, examples in the class repository, and help from your favorite AI assistant - as well as helping each other - to complete this set of Labs.
 
-### Lab 14: [Obtain a list of started tasks](lab-14-list-started-tasks.md)
-### Lab 15: [Submit inline JCL](lab-15-submit-inline-jcl.md)
-### Lab 16: [Submit JCL on the z/OS host](lab-16-submit-jcl-on-zos.md)
-### Lab 17: [Submit JCL from the local system](lab-17-submit-jcl-from-local.md)
-### Lab 18: [Use templated JCL with Jinja](lab-18-templated-jcl.md)
-### Lab 19: [Execute a TSO command to list PDS members](lab-19-pds-members.md)
-### Lab 20: [Execute a TSO command to show a RACF user profile](lab-20-racf-user.md)
-### Lab 21: [Run an inline REXX script via TSO](lab-21-rexx-tso.md)
+### Lab 15: [Obtain a list of started tasks](lab-15-list-started-tasks.md)
+### Lab 16: [Submit inline JCL](lab-16-submit-inline-jcl.md)
+### Lab 17: [Submit JCL on the z/OS host](lab-17-submit-jcl-on-zos.md)
+### Lab 18: [Submit JCL from the local system](lab-18-submit-jcl-from-local.md)
+### Lab 19: [Use templated JCL with Jinja](lab-19-templated-jcl.md)
+### Lab 20: [Execute a TSO command to list PDS members](lab-20-pds-members.md)
+### Lab 21: [Execute a TSO command to show a RACF user profile](lab-21-racf-user.md)
+### Lab 22: [Run an inline REXX script via TSO](lab-22-rexx-tso.md)
 
 ## Day 3
-
-### Lab 22: [Configure inventory and playbooks on the Ansible Controller](lab-22-ansible-controller.md)
-
 
 ### Notes for Labs 23 - xx
 
