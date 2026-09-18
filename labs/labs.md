@@ -30,8 +30,14 @@ These labs assume
 
 ## Day 2
 
-### Lab x:
-### Lab x:
+### Lab 14: [Submit inline JCL](lab-14-submit-inline-jcl.md)
+### Lab 15: [Submit JCL on the z/OS host](lab-15-submit-jcl-on-zos.md)
+### Lab 16: [Submit JCL from the local system](lab-16-submit-jcl-from-local.md)
+### Lab 17: [Use templated JCL with Jinja](lab-17-templated-jcl.md)
+### Lab 18: [Execute a TSO command to list PDS members](lab-18-pds-members.md)
+### Lab 19: [Execute a TSO command to show a RACF user profile](lab-19-racf-user.md)
+### Lab 20: [Run an inline REXX script via TSO](lab-20-rexx-tso.md)
+### Lab 21: [Convert JCL into Ansible playbook](lab-21-jcl-to-playbook.md)
 
 ## Day x
 
