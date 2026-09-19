@@ -1,21 +1,25 @@
 ---
 ## group_vars/all.yml
 #
-# Toolchain locations on the LPAR. Verified 2026-09-17 against 173.45.66.189.
+# Toolchain for ibm.ibm_zos_core 2.0.0. Verified against 173.45.66.189
+# (z/OS 3.1) on 2026-09-18.
 #
-#   ibm.ibm_zos_core 1.15.0 requires ZOAU 1.3.4 or later. The default tree at
-#   /usr/lpp/IBM/zoautil is 1.2.5.4 and is too old -- with it, only zos_ping
-#   works and every data set module fails. ZOAU 1.4.0.0 is installed
-#   separately at /usr/lpp/IBM/zoau/v1r4 and ships wheels for cp312/cp313
-#   only, so Python must be 3.13 (v3r13), not the 3.11 tree.
+#   2.0.0 requires ZOAU >= 1.4.0 and Python >= 3.12 on the managed node.
+#   The LPAR carries two ZOAU trees: 1.2.5.4 at /usr/lpp/IBM/zoautil (too old)
+#   and 1.4.0.0 at /usr/lpp/IBM/zoau/v1r4. Point at the latter, and use the
+#   Python 3.13 tree, because the ZOAU 1.4 wheels are cp312/cp313 only.
+#
+#   PYTHONSTDINENCODING IS DELIBERATELY ABSENT. Collection 1.15.0 needs
+#   "cp1047" here, but with it set every 2.0.0 module fails with
+#   "Module result deserialization failed: No start of json char found"
+#   and returns raw EBCDIC. Do not add it back while on 2.0.0.
 PYZ: "/usr/lpp/IBM/cyp/v3r13/pyz"
 ZOAU: "/usr/lpp/IBM/zoau/v1r4"
 
 # Per-student data set namespace.
 #
-#   Student TSO IDs (GAMA01, GAMA02, ...) have no OMVS segment and cannot be
-#   SSH/Ansible users, so every student connects as ibmuser. Isolation happens
-#   at the data set level instead: each student owns IBMUSER.<their TSO id>.*
+#   Student TSO IDs have no OMVS segment and cannot be SSH/Ansible users, so
+#   every student connects as ibmuser and is isolated by data set namespace.
 #   In AAP, student_id comes from the job template survey.
 hlq: "IBMUSER.{{ student_id | mandatory }}"
 
@@ -25,7 +29,6 @@ environment_vars:
   PYTHONPATH: "{{ ZOAU }}/lib/3.13"
   LIBPATH: "{{ ZOAU }}/lib:{{ PYZ }}/lib:/lib:/usr/lib:."
   PATH: "{{ ZOAU }}/bin:{{ PYZ }}/bin:/bin:/var/bin"
-  PYTHONSTDINENCODING: "cp1047"
   _CEE_RUNOPTS: "FILETAG(AUTOCVT,AUTOTAG) POSIX(ON)"
   _TAG_REDIR_IN: txt
   _TAG_REDIR_OUT: txt

@@ -41,3 +41,9 @@ RUN rm -rf /opt/app-root/src/.ansible \
 
 WORKDIR /runner
 USER 1001
+
+# NOTE: this EE is retained for reference only. The repo now standardises on
+# ibm_zos_core 2.0.0 (see collections/requirements.yml). To use this 1.9.0
+# image you must also revert group_vars/all.yml to the older toolchain:
+# ZOAU 1.2.5.4 at /usr/lpp/IBM/zoautil, Python 3.11, and PYTHONSTDINENCODING
+# set to cp1047 -- 1.9.0 needs it, 2.0.0 breaks with it.

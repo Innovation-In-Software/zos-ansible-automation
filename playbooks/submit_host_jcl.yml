@@ -10,9 +10,8 @@
     - name: Submit JCL from a PDS member 
       zos_job_submit:
         src: "IBMUSER.JCL(IN2OUT)"  
-        location: DATA_SET 
-        wait: true
-        wait_time_s: 60
+        remote_src: true
+        wait_time: 60
         return_output: true  
       register: job_output 
 
@@ -21,4 +20,4 @@
         msg:
           - "Job Name: {{ job_output.jobs[0].job_name }}"
           - "Job ID: {{ job_output.jobs[0].job_id }}"
-          - "Return Code: {{ job.output.jobs[0].ret_code.msg }}"
+          - "Return Code: {{ job_output.jobs[0].ret_code.msg }}"

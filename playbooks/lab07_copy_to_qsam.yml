@@ -21,7 +21,7 @@
       ibm.ibm_zos_core.zos_copy:
         src: files/customers.txt
         dest: "{{ hlq }}.TEST.QSAM"
-        force: true
+        replace: true
         encoding:
           from: ISO8859-1
           to: IBM-1047

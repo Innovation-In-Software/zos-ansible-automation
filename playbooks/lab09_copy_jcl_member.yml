@@ -22,7 +22,7 @@
       ibm.ibm_zos_core.zos_copy:
         src: jcl/HELLO.jcl
         dest: "{{ hlq }}.LAB.JCL(HELLO)"
-        force: true
+        replace: true
         encoding:
           from: ISO8859-1
           to: IBM-1047

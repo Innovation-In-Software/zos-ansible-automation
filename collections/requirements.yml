@@ -2,6 +2,18 @@
 # Installed by Ansible Automation Platform on every project sync.
 # The stock ee-supported-rhel9 / ee-minimal-rhel9 execution environments do
 # not ship the IBM z/OS collections, so they are pulled in here.
+#
+# NOTE: whatever is pinned here SHADOWS the collections baked into the
+# execution environment. The EE does not decide the collection version --
+# this file does.
 collections:
+  # 2.0.0 matches the ZOAU 1.4.0.0 installed on the LPAR (it requires
+  # >= 1.4.0) and is the version the course slide deck teaches.
   - name: ibm.ibm_zos_core
-    version: "1.15.0"
+    version: "2.0.0"
+  # Required by samples/zos-sample/playbooks/cics_*.yml
+  - name: ibm.ibm_zos_cics
+    version: "2.2.1"
+  # Required by samples/zos-sample/playbooks/zosmf_authenticate.yml
+  - name: ibm.ibm_zosmf
+    version: "1.6.0"

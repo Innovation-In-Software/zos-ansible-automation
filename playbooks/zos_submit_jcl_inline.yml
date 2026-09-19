@@ -18,13 +18,13 @@
           SH echo "Hello, World from z/OS!"
           /*
         dest: /u/ibmuser/hello_world.jcl
-        force: true
+        replace: true
 
     - name: Submit Hello World job
       zos_job_submit:
         src: /u/ibmuser/hello_world.jcl
-        location: USS
-        wait_time_s: 60
+        remote_src: true
+        wait_time: 60
         return_output: true
       register: job_output
 
@@ -34,4 +34,4 @@
 
     - name: Show spool output
       debug:
-        msg: "{{ job_output.jobs[0].ddnames | map(attribute='content') | list }}"
+        msg: "{{ job_output.jobs[0].dds | map(attribute='content') | list }}"

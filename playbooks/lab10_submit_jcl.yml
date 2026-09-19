@@ -9,8 +9,8 @@
     - name: Submit {{ hlq }}.LAB.JCL(HELLO) and wait
       ibm.ibm_zos_core.zos_job_submit:
         src: "{{ hlq }}.LAB.JCL(HELLO)"
-        location: data_set
-        wait_time_s: 60
+        remote_src: true
+        wait_time: 60
         max_rc: 4
         return_output: true
       register: job
@@ -31,4 +31,4 @@
 
     - name: Show the SYSUT2 output
       ansible.builtin.debug:
-        msg: "{{ (job.jobs[0].ddnames | selectattr('ddname', 'equalto', 'SYSUT2') | first).content | default('SYSUT2 not returned') }}"
+        msg: "{{ (job.jobs[0].dds | selectattr('dd_name', 'equalto', 'SYSUT2') | first).content | default('SYSUT2 not returned') }}"
