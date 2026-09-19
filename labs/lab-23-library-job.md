@@ -21,12 +21,12 @@ We have a set of jobs and libraries that we use to provision TSO assets for appl
 
 An application developer gets the following libraries set up for them when they are onboarded. They are allocated and seeded by jobs using the libraries above.
 
-- <userid>.DEV.ASM - for assembler source
-- <userid>.DEV.COBOL - for COBOL source 
-- <userid>.DEV.JCL - for JCL
-- <userid>.DEV.PROCLIB - for JCL procedures 
-- <userid>.DEV.REXX - for REXX scripts
-- <userid>.DEV.SPUFI - for SPUFI scripts
+- \<userid\>.DEV.ASM - for assembler source
+- \<userid\>.DEV.COBOL - for COBOL source 
+- \<userid\>.DEV.JCL - for JCL
+- \<userid\>.DEV.PROCLIB - for JCL procedures 
+- \<userid\>.DEV.REXX - for REXX scripts
+- \<userid\>.DEV.SPUFI - for SPUFI scripts
 
 ## Step 1: Allocate libraries for provisioning developer environments 
 
@@ -37,9 +37,9 @@ This is only setting the stage for the real Lab work.
   - MAKEPLIB - allocates a PDSE for program objects (sample provided)
 
 - \<you\>.LAB.SEED.JCL (you allocate this library) 
-  - ASM - JCL to assemble a program (sample provided, goes in <userid>.LAB.JCL)
-  - ASMBIND - Proc to assemble and bind a program (sample provided, goes in <userid>.LAB.PROCLIB)
-  - HELLO - Runs the HELLO program (sample provided, goes in <userid>.LAB.JCL)
+  - ASM - JCL to assemble a program (sample provided, goes in \<userid\>.LAB.JCL)
+  - ASMBIND - Proc to assemble and bind a program (sample provided, goes in \<userid\>.LAB.PROCLIB)
+  - HELLO - Runs the HELLO program (sample provided, goes in \<userid\>.LAB.JCL)
 
 - \<you\>.LAB.SEED.ASM (you allocate this library)
   - HELLO (sample provided)
