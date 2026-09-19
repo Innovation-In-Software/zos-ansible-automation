@@ -12,7 +12,7 @@ Set up a solution on z/OS that allocates source libraries for a (hypothetical) a
 
 Scenario: 
 
-We have a set of jobs and libraries that we use to provision TSO assets for application developers as part of employee onboarding. These consist of:
+We have a set of jobs and libraries that we use to provision MVS assets for application developers as part of employee onboarding. These consist of:
 
 - \<you\>.LAB.JCL - JCL used to provision libraries for application developers
 - \<you\>.LAB.PROCLIB - JCL procedures used to provision libraries for application developers
