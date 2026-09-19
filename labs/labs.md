@@ -58,9 +58,9 @@ Use the Ansible documentation, examples in the class repository, and help from y
 This set of Labs involves setting up typical kinds of jobs on z/OS and then converting them into "native" Ansible solutions that do the same work. You will do this kind of thing on an ongoing basis as you gradually shift solutions from the z/OS platform to the Controller environment.
 
 ### Lab 23: [Run job to allocate a source library and copy members into it](lab-23-library-job.md)
-### Lab 24: [Convert the job from Lab 23 into "native" Ansible](lab-24-jcl-to-playbook.md)
+### Lab 24: [Convert JCL-based solution to "pure" Ansible](lab-24-jcl-to-playbook.md)
 ### Lab 25: [Run batch job to define and populate a KSDS and do a LISTCAT](lab-25-vsam-job.md)
-### Lab 26: [Convert the job from Lab 25 into "native" Ansible](lab-26-convert-vsam-job.md)
+### Lab 26: [Convert JCL-based solution to "pure" Ansible](lab-26-convert-vsam-job.md)
 
 
 ## Day 4
