@@ -14,10 +14,10 @@ Scenario:
 
 We have a set of jobs and libraries that we use to provision TSO assets for application developers as part of employee onboarding. These consist of:
 
-- <you>.LAB.JCL - JCL used to provision libraries for application developers
-- <you>.LAB.PROCLIB - JCL procedures used to provision libraries for application developers
-- <you>.LAB.SEED.ASM - Members to seed application developer libraries 
-- <you>.LAB.SEED.JCL - Members to seed application developer libraries
+- \<you\>.LAB.JCL - JCL used to provision libraries for application developers
+- \<you\>.LAB.PROCLIB - JCL procedures used to provision libraries for application developers
+- \<you\>.LAB.SEED.ASM - Members to seed application developer libraries 
+- \<you\>.LAB.SEED.JCL - Members to seed application developer libraries
 
 An application developer gets the following libraries set up for them when they are onboarded. They are allocated and seeded by jobs using the libraries above.
 
@@ -32,24 +32,24 @@ An application developer gets the following libraries set up for them when they 
 
 This is only setting the stage for the real Lab work. 
 
-- <you>.LAB.PROCLIB (you allocate this library)
+- \<you\>.LAB.PROCLIB (you allocate this library)
   - MAKELIB - allocates a PDSE for source members (sample provided)
   - MAKEPLIB - allocates a PDSE for program objects (sample provided)
 
-- <you>.LAB.SEED.JCL (you allocate this library) 
+- \<you\>.LAB.SEED.JCL (you allocate this library) 
   - ASM - JCL to assemble a program (sample provided, goes in <userid>.LAB.JCL)
   - ASMBIND - Proc to assemble and bind a program (sample provided, goes in <userid>.LAB.PROCLIB)
   - HELLO - Runs the HELLO program (sample provided, goes in <userid>.LAB.JCL)
 
-- <you>.LAB.SEED.ASM (you allocate this library)
+- \<you\>.LAB.SEED.ASM (you allocate this library)
   - HELLO (sample provided)
 
-- <you>.LAB.SEED.JCL (you allocate this library)
+- \<you\>.LAB.SEED.JCL (you allocate this library)
   - ASM (sample provided)
   - ASMBIND (sample provided)
   - HELLO (sample provided)  
 
-- <you>.LAB.JCL (you allocate this library)
+- \<you\>.LAB.JCL (you allocate this library)
   - PROVDEV - allocates PDSEs and copies seed members into them (sample provided)
 
 ## Step 2: Develop an Ansible playbook to run the provisioning job 
