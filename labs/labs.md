@@ -62,7 +62,13 @@ This set of Labs involves setting up typical kinds of jobs on z/OS and then conv
 ### Lab 25: [Run batch job to define and populate a KSDS and do a LISTCAT](lab-25-vsam-job.md)
 ### Lab 26: [Convert the job from Lab 25 into "native" Ansible](lab-26-convert-vsam-job.md)
 
-## Day x
+
+## Day 4
+
+### Lab x:
+### Lab x:
+
+## Day 5
 
 ### Lab x:
 ### Lab x:
