@@ -12,3 +12,6 @@ collections/ansible_collections/
 .DS_Store
 *.tgz
 *.zip
+
+# IBM VSCode extension automatically adds this 
+zapp.yaml
