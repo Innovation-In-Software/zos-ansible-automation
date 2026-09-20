@@ -15,14 +15,43 @@ Ansible works by establishing an ssh session, sending a script to the target sys
 
 This lab reinforces information provided in the presentation rather than challenging you to complete a task.
 
-Demo 1: 
+Demo 1: Check the version of Python installed on USS 
 
-Shell script getinfo uses ssh to get the output from whoami and uname commands from USS on the z/OS host.
+Sign on to USS and run this.
 
-Demo 2:
+```shell
+python --version
+```
+
+Demo 2: Check the version of ZOAU installed on USS 
+
+Sign on to USS and run this.
+
+This does not support the usual convention of ```programname --version```. There is a special command to display the ZOAU version. 
+
+```shell
+zoaversion
+``` 
+
+Demo 3: Check whether a ZOAU command is installed 
+
+Sign on to USS and run this.
+
+
+```shell
+command -v jsub
+```
+
+Demo 4: 
+
+Shell script getinfo uses ssh to get the output from whoami and uname commands from USS on the z/OS host. Run this script on your local system. It uses ssh to communicate with z/OS. You are doing something similar to what Ansible does.
+
+Demo 5:
 
 Shell script runhello.sh or runhello2.sh uses ssh to submit a batch job and retrieve the contents of an output file from the job. 
 
 If ZOAU commands are installed on the target system, use runhello.sh. Otherwise, use runhello2.sh.
+
+Run this script on your local system. It uses ssh to communicate with z/OS. You are doing something similar to what Ansible does.
 
 Demo 2 runs job IBMUSER.LAB.JCL(HELLOUSS) on the z/OS host.
