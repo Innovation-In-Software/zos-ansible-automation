@@ -24,8 +24,8 @@ These labs assume
 ### Lab 8: [Explore Python and ZOAU components on z/OS](lab-8-zoau.md)
 ### Lab 9: [Linux quick and dirty](lab-9-linux.md)
 ### Lab 10: [Display Ansible variables and host values](lab-10-show-inventory.md)
-### Lab 11: [Install or verify the ibm_zos_core collection](lab-11-ibm-zos-core.md)
-### Lab 12: [Ping z/OS with Ansible](lab-12-ping.md)
+### Lab 11: [Ping z/OS with Ansible](lab-11-ping.md)
+### Lab 12: [Install or verify the ibm_zos_core collection](lab-12-ibm-zos-core.md)
 ### Lab 13: [Gather information about the z/OS system](lab-13-gather-facts.md)
 
 ## Day 2

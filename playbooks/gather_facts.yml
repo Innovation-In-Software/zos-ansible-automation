@@ -1,0 +1,11 @@
+---
+- name: Gather facts from z/OS
+  hosts: zoslab
+  gather_facts: false
+  tasks:
+    - name: Gather z/OS facts
+      ibm.ibm_zos_core.zos_gather_facts:
+
+    - name: Display gathered facts
+      ansible.builtin.debug:
+        var: ansible_facts
