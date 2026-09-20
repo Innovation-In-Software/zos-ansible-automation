@@ -1,6 +1,6 @@
-#### [Labs](labs.md) => _lab-12-ping.md_
+#### [Labs](labs.md) => _lab-11-ping.md_
 
-# Lab 12: Use Ansible to ping the z/OS system 
+# Lab 11: Use Ansible to ping the z/OS system 
 
 Goals:
 
