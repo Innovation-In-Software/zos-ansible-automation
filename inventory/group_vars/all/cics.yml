@@ -1,0 +1,5 @@
+cmci_host: 173.45.66.189
+cmci_port: 1490
+cmci_scheme: http
+scheme: http
+context: CICSTS61 

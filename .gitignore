@@ -3,7 +3,8 @@ id_rsa
 id_rsa.pub
 *.pem
 *.key
-inventory
+# For learning purposes inventory is included in the repo, but it should not be committed in a real project
+# inventory
 
 # Collections installed at sync time
 collections/ansible_collections/
