@@ -1,6 +1,6 @@
-#### [Labs](labs.md) => _lab-11-show-inventory.md_
+#### [Labs](labs.md) => _lab-10-show-inventory.md_
 
-# Lab 11: Explore inventory values and configure for the Lab z/OS system 
+# Lab 10: Explore inventory values and configure for the Lab z/OS system 
 
 Goals:
 
