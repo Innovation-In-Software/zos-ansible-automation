@@ -1,10 +1,10 @@
-#### [Labs](labs.md) => _lab-24-jcl-to-playbook.md_
+#### [Labs](labs.md) => _lab-25-jcl-to-playbook.md_
 
-# Lab 24: Convert JCL-based solution to "pure" Ansible
+# Lab 25: Convert JCL-based solution to "pure" Ansible
 
 Notes:
 
-Labs 23 and 24 are a pair. Lab 23 sets up a solution similar to what might already exist in a z/OS shop that is starting to use Ansible. Lab 24 (this one) converts that solution into one based on Ansible functionality rather than JCL. 
+Labs 24 and 25 are a pair. Lab 24 sets up a solution similar to what might already exist in a z/OS shop that is starting to use Ansible. Lab 25 (this one) converts that solution into one based on Ansible functionality rather than JCL. 
 
 Goal:
 

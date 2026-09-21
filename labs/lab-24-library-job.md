@@ -1,6 +1,6 @@
-#### [Labs](labs.md) => _lab-23-library-job.md_
+#### [Labs](labs.md) => _lab-24-library-job.md_
 
-# Lab 23: Set up a library provisioning job on z/OS
+# Lab 24: Set up a library provisioning job on z/OS
 
 Notes:
 

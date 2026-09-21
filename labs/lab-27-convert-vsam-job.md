@@ -1,10 +1,10 @@
-#### [Labs](labs.md) => _lab-26-convert-vsam-job.md_
+#### [Labs](labs.md) => _lab-27-convert-vsam-job.md_
 
-# Lab 26: Convert JCL-based solution to "pure" Ansible
+# Lab 27: Convert JCL-based solution to "pure" Ansible
 
 Notes:
 
-Labs 25 and 26 are a pair. Lab 25 sets up a solution similar to what might already exist in a z/OS shop that is starting to use Ansible. Lab 26 (this one) converts that solution into one based on Ansible functionality rather than JCL. 
+Labs 26 and 27 are a pair. Lab 26 sets up a solution similar to what might already exist in a z/OS shop that is starting to use Ansible. Lab 27 (this one) converts that solution into one based on Ansible functionality rather than JCL. 
 
 Goal:
 

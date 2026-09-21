@@ -1,6 +1,6 @@
-#### [Labs](labs.md) => _lab-18-submit-jcl-on-zos.md_
+#### [Labs](labs.md) => _lab-19-submit-jcl-on-zos.md_
 
-# Lab 18: Submit JCL that resides on the z/OS host
+# Lab 19: Submit JCL that resides on the z/OS host
 
 Goal:
 

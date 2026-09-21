@@ -30,9 +30,10 @@ These labs assume
 
 ## Day 2
 
-### Lab 14: [Configure inventory and playbooks on the Ansible Controller](lab-14-ansible-controller.md)
+### Lab 14: [Create inventory by hand on the Automation Controller](lab-14-create-inventory-by-hand.md)
+### Lab 15: [Import project from Github into the Automation Controller](lab-15-import-project-from-github.md)
 
-### Notes for Labs 15 - 22
+### Notes for Labs 16 - 23
 
 Ansible can perform most of the tasks that you might need to carry out to administer a z/OS system. With each new release, they are adding more functionality. By enabling you to submit TSO commands it provides a way to fill in any functional gaps in its modules, since you can basically do "anything" that way.
 
@@ -42,25 +43,25 @@ In the meantime, it's useful to know how to use Ansible to invoke the solutions 
 
 Use the Ansible documentation, examples in the class repository, and help from your favorite AI assistant - as well as helping each other - to complete this set of Labs.
 
-### Lab 15: [Obtain a list of started tasks](lab-15-list-started-tasks.md)
-### Lab 16: [Submit inline JCL](lab-16-submit-inline-jcl.md)
-### Lab 17: [Submit JCL on the z/OS host](lab-17-submit-jcl-on-zos.md)
-### Lab 18: [Submit JCL from the local system](lab-18-submit-jcl-from-local.md)
-### Lab 19: [Use templated JCL with Jinja](lab-19-templated-jcl.md)
-### Lab 20: [Execute a TSO command to list PDS members](lab-20-pds-members.md)
-### Lab 21: [Execute a TSO command to show a RACF user profile](lab-21-racf-user.md)
-### Lab 22: [Run an inline REXX script via TSO](lab-22-rexx-tso.md)
+### Lab 16: [Obtain a list of started tasks](lab-16-list-started-tasks.md)
+### Lab 17: [Submit inline JCL](lab-17-submit-inline-jcl.md)
+### Lab 18: [Submit JCL on the z/OS host](lab-18-submit-jcl-on-zos.md)
+### Lab 19: [Submit JCL from the local system](lab-19-submit-jcl-from-local.md)
+### Lab 20: [Use templated JCL with Jinja](lab-20-templated-jcl.md)
+### Lab 21: [Execute a TSO command to list PDS members](lab-21-pds-members.md)
+### Lab 22: [Execute a TSO command to show a RACF user profile](lab-22-racf-user.md)
+### Lab 23: [Run an inline REXX script via TSO](lab-23-rexx-tso.md)
 
 ## Day 3
 
-### Notes for Labs 23 - xx
+### Notes for Labs 24 - xx
 
 This set of Labs involves setting up typical kinds of jobs on z/OS and then converting them into "native" Ansible solutions that do the same work. You will do this kind of thing on an ongoing basis as you gradually shift solutions from the z/OS platform to the Controller environment.
 
-### Lab 23: [Run job to allocate a source library and copy members into it](lab-23-library-job.md)
-### Lab 24: [Convert the job from Lab 23 into "native" Ansible](lab-24-jcl-to-playbook.md)
-### Lab 25: [Run batch job to define and populate a KSDS and do a LISTCAT](lab-25-vsam-job.md)
-### Lab 26: [Convert the job from Lab 25 into "native" Ansible](lab-26-convert-vsam-job.md)
+### Lab 24: [Run job to allocate a source library and copy members into it](lab-23-library-job.md)
+### Lab 25: [Convert the job from Lab 23 into "native" Ansible](lab-24-jcl-to-playbook.md)
+### Lab 26: [Run batch job to define and populate a KSDS and do a LISTCAT](lab-25-vsam-job.md)
+### Lab 27: [Convert the job from Lab 25 into "native" Ansible](lab-26-convert-vsam-job.md)
 
 
 ## Day 4

@@ -1,6 +1,6 @@
-#### [Labs](labs.md) => _lab-22-rexx-tso.md_
+#### [Labs](labs.md) => _lab-23-rexx-tso.md_
 
-# Lab 22: Submit inline REXX to the z/OS host
+# Lab 23: Submit inline REXX to the z/OS host
 
 Goals:
 

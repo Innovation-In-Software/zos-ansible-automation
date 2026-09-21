@@ -1,8 +1,8 @@
-#### [Labs](labs.md) => _lab-19-templated-jcl.md_
+#### [Labs](labs.md) => _lab-20-templated-jcl.md_
 
-# Lab 19: Create template JCL and customize it prior to submission
+# Lab 20: Create template JCL and customize it prior to submission
 
-In this Lab, you make a copy of the JCL from Lab 18 and convert it into a Jinja template by replacing all the values that need to be flexible with variable names. Then you make a modified copy of the playbook from Lab 18 to fill in the variables in the template before submitting the JCL.
+In this Lab, you make a copy of the JCL from Lab 19 and convert it into a Jinja template by replacing all the values that need to be flexible with variable names. Then you make a modified copy of the playbook from Lab 18 to fill in the variables in the template before submitting the JCL.
 
 Goal:
 

@@ -1,10 +1,10 @@
-#### [Labs](labs.md) => _lab-25-vsam-job.md_
+#### [Labs](labs.md) => _lab-26-vsam-job.md_
 
-# Lab 25: Set up an IDCAMS job on z/OS and submit it through Ansible
+# Lab 26: Set up an IDCAMS job on z/OS and submit it through Ansible
 
 Notes:
 
-Labs 25 and 26 are a pair. The idea is to take a solution built from JCL and resident on the z/OS host and convert it into an Ansible solution that resides on the Controller and does not depend on running JCL on the z/OS node. 
+Labs 26 and 27 are a pair. The idea is to take a solution built from JCL and resident on the z/OS host and convert it into an Ansible solution that resides on the Controller and does not depend on running JCL on the z/OS node. 
 
 Goal:
 

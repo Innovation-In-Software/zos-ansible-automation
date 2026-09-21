@@ -1,6 +1,6 @@
-#### [Labs](labs.md) => _lab-21-racf-user.md_
+#### [Labs](labs.md) => _lab-22-racf-user.md_
 
-# Lab 21: Get RACF profile of a given userid via TSO command
+# Lab 22: Get RACF profile of a given userid via TSO command
 
 Goals:
 

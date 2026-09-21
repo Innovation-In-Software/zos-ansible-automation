@@ -1,6 +1,6 @@
-#### [Labs](labs.md) => _lab-16-submit-inline-jcl.md_
+#### [Labs](labs.md) => _lab-17-submit-inline-jcl.md_
 
-# Lab 16: Submit inline JCL 
+# Lab 17: Submit inline JCL 
 
 There are three ways to submit a batch job with Ansible: code the JCL inline (this lab), keep the JCL on the control node, or keep the JCL on the z/OS host. 
 
